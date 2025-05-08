@@ -31,6 +31,8 @@ public class PlayerController
         playerState = PlayerState.InDark;
     }
 
+    ~PlayerController() => LightSwitchView.light_switch_toggle -= OnLightSwitchToggle;
+
     public void Interact() => IsInteracted = Input.GetKeyDown(KeyCode.E) ? true : (Input.GetKeyUp(KeyCode.E) ? false : IsInteracted);
 
     public void Jump(Rigidbody playerRigidbody, Transform transform)
@@ -78,7 +80,6 @@ public class PlayerController
 
     private void OnLightSwitchToggle()
     {
-        Debug.Log("PC - OnLightSwitchToggle");
         if (playerState == PlayerState.InDark)
             playerState = PlayerState.None;
         else

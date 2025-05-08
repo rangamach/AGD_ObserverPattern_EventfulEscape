@@ -13,10 +13,12 @@ public class LightSwitchView : MonoBehaviour, IInteractable
 
     private void OnEnable() => light_switch_toggle += OnLightSwitchToggle;
 
+    private void OnDisable() => light_switch_toggle -= OnLightSwitchToggle;
+    
+
     public void Interact()
     {
-        //Todo - Implement Interaction
-        light_switch_toggle.Invoke();
+        light_switch_toggle?.Invoke();
     }
     private void toggleLights()
     {
