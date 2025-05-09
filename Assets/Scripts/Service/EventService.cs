@@ -1,7 +1,7 @@
 public class EventService
 {
     private static EventService instance;
-    public EventService Instance 
+    public static EventService Instance 
     {
         get
         {
